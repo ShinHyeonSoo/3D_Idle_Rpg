@@ -22,7 +22,7 @@ public class PlayerStateMachine : StateMachine
     public PlayerIdleState IdleState { get; private set; }
     public PlayerChasingState ChasingState { get; private set; }
     
-    //public PlayerComboAttackState ComboAttackState { get; private set; }
+    public PlayerComboAttackState ComboAttackState { get; private set; }
 
     public PlayerStateMachine(Player player)
     {
@@ -36,7 +36,7 @@ public class PlayerStateMachine : StateMachine
         IdleState = new PlayerIdleState(this);
         ChasingState = new PlayerChasingState(this);
         
-        //ComboAttackState = new PlayerComboAttackState(this);
+        ComboAttackState = new PlayerComboAttackState(this);
         
         MovementSpeed = player.Data.GroundData.BaseSpeed;
         RotationDamping = player.Data.GroundData.BaseRotationDamping;

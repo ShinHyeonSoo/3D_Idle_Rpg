@@ -53,8 +53,7 @@ public class PlayerChasingState : PlayerBaseState
 
             if (IsInAttackRange())
             {
-                //_stateMachine.ChangeState(_stateMachine.AttackState);
-                Debug.Log("Attack State");
+                _stateMachine.ChangeState(_stateMachine.ComboAttackState);
                 return;
             }
         }

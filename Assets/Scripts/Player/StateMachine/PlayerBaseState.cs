@@ -88,29 +88,29 @@ public class PlayerBaseState : IState
 
     //protected void ForceMove()
     //{
-    //    _stateMachine.Enemy.Controller.Move(_stateMachine.Enemy.ForceReceiver.Movement * Time.deltaTime);
+    //    _stateMachine.Player.Controller.Move(_stateMachine.Player.ForceReceiver.Movement * Time.deltaTime);
     //}
 
-    //protected float GetNormalizedTime(Animator animator, string tag)
-    //{
-    //    AnimatorStateInfo currentInfo = animator.GetCurrentAnimatorStateInfo(0);
-    //    AnimatorStateInfo nextInfo = animator.GetNextAnimatorStateInfo(0);
+    protected float GetNormalizedTime(Animator animator, string tag)
+    {
+        AnimatorStateInfo currentInfo = animator.GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo nextInfo = animator.GetNextAnimatorStateInfo(0);
 
-    //    // 전환되고 있을 때 && 다음 애니메이션이 tag
-    //    if (animator.IsInTransition(0) && nextInfo.IsTag(tag))
-    //    {
-    //        return nextInfo.normalizedTime;
-    //    }
-    //    // 전환되고 있지 않을 때 && 현재 애니메이션이 tag
-    //    else if (!animator.IsInTransition(0) && currentInfo.IsTag(tag))
-    //    {
-    //        return currentInfo.normalizedTime;
-    //    }
-    //    else
-    //    {
-    //        return 0;
-    //    }
-    //}
+        // 전환되고 있을 때 && 다음 애니메이션이 tag
+        if (animator.IsInTransition(0) && nextInfo.IsTag(tag))
+        {
+            return nextInfo.normalizedTime;
+        }
+        // 전환되고 있지 않을 때 && 현재 애니메이션이 tag
+        else if (!animator.IsInTransition(0) && currentInfo.IsTag(tag))
+        {
+            return currentInfo.normalizedTime;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 
     protected bool IsInChasingRange()
     {
