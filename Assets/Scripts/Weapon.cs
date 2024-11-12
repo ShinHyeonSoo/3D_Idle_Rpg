@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Collider _myCollider;
 
     private int _damage;
+    private float _damageRate = 1f;
     private float _knockback;
 
     private List<Collider> _alreadyCollider = new List<Collider>();
@@ -25,7 +27,7 @@ public class Weapon : MonoBehaviour
 
         if (other.TryGetComponent(out IDamageable damage))
         {
-            damage.TakePhysicalDamage(_damage);
+            damage.TakePhysicalDamage(Convert.ToInt32(_damage * _damageRate));
         }
 
         //if (other.TryGetComponent(out ForceReceiver force))
@@ -39,5 +41,10 @@ public class Weapon : MonoBehaviour
     {
         this._damage = damage;
         this._knockback = knockback;
+    }
+    
+    public void SetDamageRate(float damageRate)
+    {
+        this._damageRate = damageRate;
     }
 }

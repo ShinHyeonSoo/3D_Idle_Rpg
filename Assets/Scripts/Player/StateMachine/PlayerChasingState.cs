@@ -52,7 +52,7 @@ public class PlayerChasingState : PlayerBaseState
 
             if (IsInAttackRange())
             {
-                _stateMachine.ChangeState(_stateMachine.ComboAttackState);
+                _stateMachine.ChangeState(_stateMachine.IdleState);
                 return;
             }
         }

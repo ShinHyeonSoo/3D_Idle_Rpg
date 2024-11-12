@@ -37,4 +37,16 @@ public class Condition : MonoBehaviour
     {
         _curValue = Mathf.Max(_curValue - value, 0);
     }
+
+    public bool IncreaseMax()
+    {
+        if(_curValue == _maxValue)
+        {
+            _maxValue = _curValue * 1.2f;
+            _curValue = 0;
+            return true;
+        }
+        
+        return false;
+    }
 }

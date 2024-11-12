@@ -30,7 +30,7 @@ public class PlayerCondition : MonoBehaviour, IDamageable
     {
         RecoveryStamina();
 
-        TempLevelText();
+        PrintLevelText();
 
         if (_isEfficacy)
             CheckEfficacy();
@@ -54,6 +54,8 @@ public class PlayerCondition : MonoBehaviour, IDamageable
     public void IncreaseEXP(int amount)
     {
         EXP.Add(amount);
+        if (EXP.IncreaseMax())
+            ++_level;
     }
 
     public void UseScroll(float amount, float duration)
@@ -61,13 +63,13 @@ public class PlayerCondition : MonoBehaviour, IDamageable
         _efficacyRate = duration;
         _lastCheckTime = Time.time;
 
-        // TODO : duration 초 동안 *= amount 만큼 공격력 상승 로직
-        Debug.Log("스크롤 사용. 공격력 증가 !");
+        // duration 초 동안 *= amount 만큼 공격력 상승 로직
+        CharacterManager.Instance.Player.Weapon.SetDamageRate(amount);
 
         _isEfficacy = true;
     }
 
-    public void TempLevelText()
+    public void PrintLevelText()
     {
         _uiCondition._levelText.text = $"Lv. {_level}";
     }
@@ -76,16 +78,14 @@ public class PlayerCondition : MonoBehaviour, IDamageable
     {
         if (Time.time - _lastCheckTime > _efficacyRate)
         {
-            // TODO : 버프를 해제하는 로직
-            Debug.Log("버프 시간 종료... 스크롤 버프 삭제");
-
+            CharacterManager.Instance.Player.Weapon.SetDamageRate(1f);
             _isEfficacy = false;
         }
     }
 
     public void Die()
     {
-        Debug.Log("죽었다.");
+        
     }
 
     public void RecoveryStamina()
@@ -95,12 +95,7 @@ public class PlayerCondition : MonoBehaviour, IDamageable
 
     public void TakePhysicalDamage(int damage)
     {
-        // TODO : 무적 상태일 때 여기서 리턴
-        //if (_isInvincibility) return;
-
         HP.Subtract(damage);
-        // TODO : Hit 애니메이션 재생
-
     }
 
     public bool UseStamina(float amount)

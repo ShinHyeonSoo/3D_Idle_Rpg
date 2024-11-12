@@ -66,6 +66,15 @@ public class UIShop : MonoBehaviour
             _selectedTexts[(int)TextType.StatValue].text += item._consumables[i]._value.ToString() + "\n";
         }
 
+        if(item._type == ItemType.Equipable)
+        {
+            if (item._equipType == EquipType.Weapon)
+                _selectedTexts[(int)TextType.StatName].text = "공격력 + ";
+            else if (item._equipType == EquipType.Armor)
+                _selectedTexts[(int)TextType.StatName].text = "방어력 + ";
+            _selectedTexts[(int)TextType.StatValue].text = item._stat.ToString();
+        }
+
         _selectedTexts[(int)TextType.ItemPrice].text = $"가격 : {item._itemPrice}";
 
         _buyButton.SetActive(true);
@@ -85,8 +94,7 @@ public class UIShop : MonoBehaviour
     public void OnBuyButton()
     {
         if (_selectIndex == -1) return;
-
-        // TODO : 아이템 가격 만큼 재화 차감, 부족하면 return
+        
         if(_slots[_selectIndex]._item._itemPrice > InventoryManager.Instance.Currency._goldCoin._curValue)
         {
             return;

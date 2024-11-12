@@ -110,8 +110,7 @@ public class PlayerBaseState : IState
             // 타겟이 null 일 때, 새 타겟을 찾는 로직
             _stateMachine.Target = NearEnemy();
 
-            // TODO : 타겟이 null 일 때, 콤보 공격을 멈추고 Idle 상태로 돌아가기
-
+            // 타겟이 null 일 때, 콤보 공격을 멈추고 Idle 상태로 돌아가기
             if (_stateMachine.Target == null) return false;
         }
 
