@@ -25,3 +25,5 @@ MonoBehaviour:
     <AttackRange>k__BackingField: 1.5
   <Dealing_Start_TransitionTime>k__BackingField: 0.2
   <Dealing_End_TransitionTime>k__BackingField: 0.45
+  exp: 10
+  goldCoin: 150

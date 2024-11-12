@@ -6,8 +6,6 @@ using UnityEngine;
 public class EnemyCondition : MonoBehaviour, IDamageable
 {
     [SerializeField] private Condition _hp;
-    [SerializeField] private int _exp;
-    [SerializeField] private int _goldCoin;
 
     private event Action<int> ExpHandler;
     private event Action<int> GoldHandler;
@@ -35,7 +33,10 @@ public class EnemyCondition : MonoBehaviour, IDamageable
     {
         // TODO : 사망 애니메이션 재생 후, 삭제로 변경
         Destroy(gameObject);
-        ExpHandler?.Invoke(_exp);
-        GoldHandler?.Invoke(_goldCoin);
+
+        EnemySO data = GetComponent<Enemy>().Data;
+
+        ExpHandler?.Invoke(data.exp);
+        GoldHandler?.Invoke(data.goldCoin);
     }
 }
