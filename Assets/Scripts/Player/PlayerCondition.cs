@@ -12,14 +12,13 @@ public class PlayerCondition : MonoBehaviour, IDamageable
 {
     public UICondition _uiCondition;
 
-    //private float _efficacyStat;
-    //private float _efficacyRate;
-    //private float _lastCheckTime;
+    private float _efficacyStat;
+    private float _efficacyRate;
+    private float _lastCheckTime;
 
-    //private bool _isEfficacy;
-    //private bool _isInvincibility;
+    private bool _isEfficacy;
 
-    //private ConsumableType _consumableType;
+    private ConsumableType _consumableType;
 
     private int _level = 1;
 
@@ -33,8 +32,8 @@ public class PlayerCondition : MonoBehaviour, IDamageable
 
         TempLevelText();
 
-        //if (_isEfficacy)
-        //    CheckEfficacy();
+        if (_isEfficacy)
+            CheckEfficacy();
 
         if (HP._curValue == 0f)
         {
@@ -57,61 +56,32 @@ public class PlayerCondition : MonoBehaviour, IDamageable
         EXP.Add(amount);
     }
 
+    public void UseScroll(float amount, float duration)
+    {
+        _efficacyRate = duration;
+        _lastCheckTime = Time.time;
+
+        // TODO : duration 초 동안 *= amount 만큼 공격력 상승 로직
+        Debug.Log("스크롤 사용. 공격력 증가 !");
+
+        _isEfficacy = true;
+    }
+
     public void TempLevelText()
     {
         _uiCondition._levelText.text = $"Lv. {_level}";
     }
 
-    //public void SpeedBoost(float amount, float duration, ConsumableType type)
-    //{
-    //    _efficacyStat = amount;
-    //    CharacterManager.Instance.Player.Controller._moveSpeed *= _efficacyStat;
-    //    _efficacyRate = duration;
-    //    _consumableType = type;
-    //    _lastCheckTime = Time.time;
-    //    _isEfficacy = true;
-    //}
+    private void CheckEfficacy()
+    {
+        if (Time.time - _lastCheckTime > _efficacyRate)
+        {
+            // TODO : 버프를 해제하는 로직
+            Debug.Log("버프 시간 종료... 스크롤 버프 삭제");
 
-    //public void DoubleJump(float duration, ConsumableType type)
-    //{
-    //    CharacterManager.Instance.Player.Controller.IsDoubleJump = true;
-    //    _efficacyRate = duration;
-    //    _consumableType = type;
-    //    _lastCheckTime = Time.time;
-    //    _isEfficacy = true;
-    //}
-
-    //public void Invincibility(float duration, ConsumableType type)
-    //{
-    //    _isInvincibility = true;
-    //    _efficacyRate = duration;
-    //    _consumableType = type;
-    //    _lastCheckTime = Time.time;
-    //    _isEfficacy = true;
-    //}
-
-    //private void CheckEfficacy()
-    //{
-    //    if (Time.time - _lastCheckTime > _efficacyRate)
-    //    {
-    //        switch (_consumableType)
-    //        {
-    //            case ConsumableType.SpeedBoost:
-    //                // TODO : 아이템 먹었을 때와, 달리기 중일때 구분해서 속도 되돌리기
-    //                CharacterManager.Instance.Player.Controller.RestoreSpeed(_efficacyStat);
-    //                _efficacyStat = 0f;
-    //                break;
-    //            case ConsumableType.DoubleJump:
-    //                CharacterManager.Instance.Player.Controller.IsDoubleJump = false;
-    //                break;
-    //            case ConsumableType.Invincibility:
-    //                _isInvincibility = false;
-    //                break;
-    //        }
-    //        _consumableType = ConsumableType.None;
-    //        _isEfficacy = false;
-    //    }
-    //}
+            _isEfficacy = false;
+        }
+    }
 
     public void Die()
     {

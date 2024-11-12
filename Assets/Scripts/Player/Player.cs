@@ -1,25 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
+    [field: Header("PlayerData")]
     [field: SerializeField] public PlayerSO Data { get; private set; }
 
     [field: Header("Animations")]
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
 
+    [field: Header("Weapon")]
+    [field: SerializeField] public Weapon Weapon { get; private set; }
+
+    // Components
     public Animator Animator { get; private set; }
     public CharacterController Controller { get; private set; }
-    //public ForceReceiver ForceReceiver { get; private set; }
     public NavMeshAgent NavMeshAgent { get; private set; }
-
     public PlayerCondition Condition { get; private set; }
 
+    //public ForceReceiver ForceReceiver { get; private set; }
+
+    // StateMachine
     private PlayerStateMachine _stateMachine;
 
-    [field: SerializeField] public Weapon Weapon { get; private set; }
+
+    public ItemData _itemData;
+    public Action AddItem;
+
 
     //public Health Health { get; private set; }
 
@@ -31,7 +41,6 @@ public class Player : MonoBehaviour
         Animator = GetComponentInChildren<Animator>();
         Controller = GetComponent<CharacterController>();
         //ForceReceiver = GetComponent<ForceReceiver>();
-        //Health = GetComponent<Health>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
         Condition = GetComponent<PlayerCondition>();
 
