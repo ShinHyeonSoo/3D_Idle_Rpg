@@ -7076,8 +7076,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _curValue: 0
-  _startValue: 25
-  _maxValue: 25
+  _startValue: 0
+  _maxValue: 0
   _passiveValue: 0
   _uiBar: {fileID: 2025475049}
 --- !u!224 &1348117025
@@ -11055,8 +11055,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _curValue: 0
-  _startValue: 25
-  _maxValue: 25
+  _startValue: 0
+  _maxValue: 0
   _passiveValue: 0
   _uiBar: {fileID: 2123751753}
 --- !u!4 &2040240005 stripped

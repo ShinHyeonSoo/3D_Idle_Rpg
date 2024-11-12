@@ -16,7 +16,6 @@ MonoBehaviour:
   <AttackRange>k__BackingField: 1.5
   <ForceTransitionTime>k__BackingField: 0.1
   <Force>k__BackingField: 1
-  Damage: 10
   <GroundData>k__BackingField:
     <BaseSpeed>k__BackingField: 5
     <BaseRotationDamping>k__BackingField: 1
@@ -25,5 +24,9 @@ MonoBehaviour:
     <AttackRange>k__BackingField: 1.5
   <Dealing_Start_TransitionTime>k__BackingField: 0.2
   <Dealing_End_TransitionTime>k__BackingField: 0.45
+  hp: 25
+  damage: 10
   exp: 100
   goldCoin: 150
+  bigHp: 1000000000
+  bigDamage: 10000
