@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 
     private PlayerStateMachine _stateMachine;
 
+    [field: SerializeField] public Weapon Weapon { get; private set; }
+
     //public Health Health { get; private set; }
 
     private void Awake()

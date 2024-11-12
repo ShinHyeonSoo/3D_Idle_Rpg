@@ -119,4 +119,10 @@ public class PlayerBaseState : IState
         float enemyDistanceSqr = (_stateMachine.Target.transform.position - _stateMachine.Player.transform.position).sqrMagnitude;
         return enemyDistanceSqr <= _stateMachine.Player.Data.GroundData.EnemyChasingRange * _stateMachine.Player.Data.GroundData.EnemyChasingRange;
     }
+
+    protected bool IsInAttackRange()
+    {
+        float playerDistanceSqr = (_stateMachine.Target.transform.position - _stateMachine.Player.transform.position).sqrMagnitude;
+        return playerDistanceSqr <= _stateMachine.Player.Data.GroundData.AttackRange * _stateMachine.Player.Data.GroundData.AttackRange;
+    }
 }

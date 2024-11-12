@@ -32,6 +32,8 @@ public class PlayerChasingState : PlayerBaseState
 
         if (!IsInChasingRange())
         {
+            // TODO : 전투가 끝나면 false 로 해주자.
+            _stateMachine.IsAttacking = true;
             _stateMachine.Player.NavMeshAgent.SetDestination(_stateMachine.Player.transform.position);
             _stateMachine.ChangeState(_stateMachine.IdleState);
             return;
@@ -57,11 +59,5 @@ public class PlayerChasingState : PlayerBaseState
                 return;
             }
         }
-    }
-
-    protected bool IsInAttackRange()
-    {
-        float playerDistanceSqr = (_stateMachine.Target.transform.position - _stateMachine.Player.transform.position).sqrMagnitude;
-        return playerDistanceSqr <= _stateMachine.Player.Data.GroundData.AttackRange * _stateMachine.Player.Data.GroundData.AttackRange;
     }
 }

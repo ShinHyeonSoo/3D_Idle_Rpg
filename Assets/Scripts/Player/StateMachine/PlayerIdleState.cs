@@ -29,10 +29,18 @@ public class PlayerIdleState : PlayerBaseState
     {
         base.Update();
 
-        if (IsInChasingRange())
+        if (IsInChasingRange() && !_stateMachine.IsDelaying)
         {
-            _stateMachine.ChangeState(_stateMachine.ChasingState);
-            return;
+            if (IsInAttackRange())
+            {
+                _stateMachine.ChangeState(_stateMachine.ComboAttackState);
+                return;
+            }
+            else
+            {
+                _stateMachine.ChangeState(_stateMachine.ChasingState);
+                return;
+            }
         }
     }
 }

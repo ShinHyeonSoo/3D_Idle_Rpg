@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerComboAttackState : PlayerAttackState
 {
     private bool _alreadyAppliedCombo;
-    private bool _alreadyApllyForce;
+    //private bool _alreadyApllyForce;
+    private bool _alreadyApliedDealing;
+
+    private int _delayTime = 1000;  // 1ÃÊ
 
     AttackInfoData _attackInfoData;
 
@@ -19,7 +23,8 @@ public class PlayerComboAttackState : PlayerAttackState
         StartAnimation(_stateMachine.Player.AnimationData.ComboAttackParameterHash);
 
         _alreadyAppliedCombo = false;
-        _alreadyApllyForce = false;
+        //_alreadyApllyForce = false;
+        _alreadyApliedDealing = false;
 
         int comboIndex = _stateMachine.ComboIndex;
         _attackInfoData = _stateMachine.Player.Data.AttackData.GetAttackInfoData(comboIndex);
@@ -34,7 +39,18 @@ public class PlayerComboAttackState : PlayerAttackState
         if (!_alreadyAppliedCombo)
         {
             _stateMachine.ComboIndex = 0;
+
+            AttackDelay();
         }
+    }
+
+    private async void AttackDelay()
+    {
+        _stateMachine.IsDelaying = true;
+
+        await Task.Delay(_delayTime);
+
+        _stateMachine.IsDelaying = false;
     }
 
     public override void Update()
@@ -52,10 +68,26 @@ public class PlayerComboAttackState : PlayerAttackState
                 TryComboAttack();
             }
 
-            if (normalizedTime >= _attackInfoData.ForceTransitionTime)
+            //if (normalizedTime >= _attackInfoData.ForceTransitionTime)
+            //{
+            //     ´ïÇÎ ½Ãµµ
+            //    TryApplyForce();
+            //}
+
+            if (!_alreadyApliedDealing && normalizedTime >= _stateMachine.Player.Data.AttackData.
+                GetAttackInfoData(_stateMachine.ComboIndex).Dealing_Start_TransitionTime)
             {
-                // ´ïÇÎ ½Ãµµ
-                //TryApplyForce();
+                _stateMachine.Player.Weapon.SetAttack(_stateMachine.Player.Data.AttackData.
+                    GetAttackInfoData(_stateMachine.ComboIndex).Damage, _stateMachine.Player.Data.AttackData.
+                    GetAttackInfoData(_stateMachine.ComboIndex).Force);
+                _stateMachine.Player.Weapon.gameObject.SetActive(true);
+                _alreadyApliedDealing = true;
+            }
+
+            if (_alreadyApliedDealing && normalizedTime >= _stateMachine.Player.Data.AttackData.
+                GetAttackInfoData(_stateMachine.ComboIndex).Dealing_End_TransitionTime)
+            {
+                _stateMachine.Player.Weapon.gameObject.SetActive(false);
             }
         }
         else
