@@ -32,8 +32,6 @@ public class PlayerChasingState : PlayerBaseState
 
         if (!IsInChasingRange())
         {
-            // TODO : 전투가 끝나면 false 로 해주자.
-            _stateMachine.IsAttacking = true;
             _stateMachine.Player.NavMeshAgent.SetDestination(_stateMachine.Player.transform.position);
             _stateMachine.ChangeState(_stateMachine.IdleState);
             return;
@@ -44,7 +42,6 @@ public class PlayerChasingState : PlayerBaseState
             if (_stateMachine.Player.NavMeshAgent.CalculatePath(_stateMachine.Target.transform.position, path))
             {
                 _stateMachine.Player.NavMeshAgent.SetDestination(_stateMachine.Target.transform.position);
-                Debug.Log("Chasing State");
             }
             else
             {

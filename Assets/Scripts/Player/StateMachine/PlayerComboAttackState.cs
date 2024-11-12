@@ -64,6 +64,12 @@ public class PlayerComboAttackState : PlayerAttackState
         {
             if (normalizedTime >= _attackInfoData.ComboTransitionTime)
             {
+                if (_stateMachine.Target == null)
+                {
+                    _stateMachine.ChangeState(_stateMachine.IdleState);
+                    return;
+                }
+
                 // ÄÞº¸ ½Ãµµ
                 TryComboAttack();
             }

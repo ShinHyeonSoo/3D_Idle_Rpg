@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Player : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    [field: SerializeField] public PlayerSO Data { get; private set; }
+    [field: SerializeField] public EnemySO Data { get; private set; }
 
     [field: Header("Animations")]
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
@@ -13,36 +13,28 @@ public class Player : MonoBehaviour
     public Animator Animator { get; private set; }
     public CharacterController Controller { get; private set; }
     //public ForceReceiver ForceReceiver { get; private set; }
+
     public NavMeshAgent NavMeshAgent { get; private set; }
 
-    public PlayerCondition Condition { get; private set; }
-
-    private PlayerStateMachine _stateMachine;
+    private EnemyStateMachine _stateMachine;
 
     [field: SerializeField] public Weapon Weapon { get; private set; }
 
-    //public Health Health { get; private set; }
-
     private void Awake()
     {
-        CharacterManager.Instance.Player = this;
-
         AnimationData.Initialize();
         Animator = GetComponentInChildren<Animator>();
         Controller = GetComponent<CharacterController>();
         //ForceReceiver = GetComponent<ForceReceiver>();
-        //Health = GetComponent<Health>();
-        NavMeshAgent = GetComponent<NavMeshAgent>();
-        Condition = GetComponent<PlayerCondition>();
 
-        _stateMachine = new PlayerStateMachine(this);
+        NavMeshAgent = GetComponent<NavMeshAgent>();
+
+        _stateMachine = new EnemyStateMachine(this);
     }
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
         _stateMachine.ChangeState(_stateMachine.IdleState);
-        //Health.OnDie += OnDie;
     }
 
     private void Update()
@@ -55,10 +47,4 @@ public class Player : MonoBehaviour
     {
         _stateMachine.PhysicsUpdate();
     }
-
-    //private void OnDie()
-    //{
-    //    Animator.SetTrigger("Die");
-    //    enabled = false;
-    //}
 }

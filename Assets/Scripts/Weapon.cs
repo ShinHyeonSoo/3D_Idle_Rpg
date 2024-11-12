@@ -23,10 +23,10 @@ public class Weapon : MonoBehaviour
 
         _alreadyCollider.Add(other);
 
-        //if (other.TryGetComponent(out Health health))
-        //{
-        //    health.TakeDamage(_damage);
-        //}
+        if (other.TryGetComponent(out IDamageable damage))
+        {
+            damage.TakePhysicalDamage(_damage);
+        }
 
         //if (other.TryGetComponent(out ForceReceiver force))
         //{

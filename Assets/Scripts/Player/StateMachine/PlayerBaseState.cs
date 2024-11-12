@@ -7,6 +7,7 @@ public class PlayerBaseState : IState
 {
     protected PlayerStateMachine _stateMachine;
     protected readonly PlayerGroundData _groundData;
+    protected readonly LayerMask _enemyLayer = 1 << LayerMask.NameToLayer("Enemy");
 
     public PlayerBaseState(PlayerStateMachine stateMachine)
     {
@@ -36,7 +37,8 @@ public class PlayerBaseState : IState
 
     public virtual void Update()
     {
-        
+        if(_stateMachine.Target != null)
+            Rotate();
     }
 
     protected void StartAnimation(int animatorHash)
@@ -49,42 +51,29 @@ public class PlayerBaseState : IState
         _stateMachine.Player.Animator.SetBool(animatorHash, false);
     }
 
-    //private void Move()
-    //{
-    //    Vector3 movementDirection = GetMovementDirection();
+    private void Rotate()
+    {
+        Vector3 movementDirection = GetMovementDirection();
 
-    //    Move(movementDirection);
+        Rotate(movementDirection);
+    }
 
-    //    Rotate(movementDirection);
-    //}
+    private Vector3 GetMovementDirection()
+    {
+        Vector3 dir = (_stateMachine.Target.transform.position - _stateMachine.Player.transform.position);
 
-    //private Vector3 GetMovementDirection()
-    //{
-    //    Vector3 dir = (_stateMachine.Target.transform.position - _stateMachine.Enemy.transform.position);
+        return dir;
+    }
 
-    //    return dir;
-    //}
-
-    //private void Move(Vector3 direction)
-    //{
-    //    float movementSpeed = GetMovementSpeed();
-    //    _stateMachine.Enemy.Controller.Move(((direction * movementSpeed) + _stateMachine.Enemy.ForceReceiver.Movement) * Time.deltaTime);
-    //}
-
-    //private float GetMovementSpeed()
-    //{
-    //    return _stateMachine.MovementSpeed * _stateMachine.MovementSpeedModifier;
-    //}
-
-    //private void Rotate(Vector3 direction)
-    //{
-    //    if (direction != Vector3.zero)
-    //    {
-    //        Transform playerTransform = _stateMachine.Enemy.transform;
-    //        Quaternion targetRotation = Quaternion.LookRotation(direction);
-    //        playerTransform.rotation = Quaternion.Slerp(playerTransform.rotation, targetRotation, _stateMachine.RotationDamping * Time.deltaTime);
-    //    }
-    //}
+    private void Rotate(Vector3 direction)
+    {
+        if (direction != Vector3.zero)
+        {
+            Transform playerTransform = _stateMachine.Player.transform;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            playerTransform.rotation = Quaternion.Slerp(playerTransform.rotation, targetRotation, _stateMachine.RotationDamping * Time.deltaTime);
+        }
+    }
 
     //protected void ForceMove()
     //{
@@ -116,6 +105,16 @@ public class PlayerBaseState : IState
     {
         //if (_stateMachine.Target._isDie) return false;
 
+        if(_stateMachine.Target == null)
+        {
+            // 타겟이 null 일 때, 새 타겟을 찾는 로직
+            _stateMachine.Target = NearEnemy();
+
+            // TODO : 타겟이 null 일 때, 콤보 공격을 멈추고 Idle 상태로 돌아가기
+
+            if (_stateMachine.Target == null) return false;
+        }
+
         float enemyDistanceSqr = (_stateMachine.Target.transform.position - _stateMachine.Player.transform.position).sqrMagnitude;
         return enemyDistanceSqr <= _stateMachine.Player.Data.GroundData.EnemyChasingRange * _stateMachine.Player.Data.GroundData.EnemyChasingRange;
     }
@@ -124,5 +123,27 @@ public class PlayerBaseState : IState
     {
         float playerDistanceSqr = (_stateMachine.Target.transform.position - _stateMachine.Player.transform.position).sqrMagnitude;
         return playerDistanceSqr <= _stateMachine.Player.Data.GroundData.AttackRange * _stateMachine.Player.Data.GroundData.AttackRange;
+    }
+
+    protected GameObject NearEnemy()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(_stateMachine.Player.transform.position, 
+            _stateMachine.Player.Data.GroundData.EnemyChasingRange, _enemyLayer);
+
+        float minDistance = float.MaxValue;
+        GameObject enemy = null;
+
+        foreach (Collider collider in hitColliders)
+        {
+            float distanceSqr = (collider.gameObject.transform.position - _stateMachine.Player.transform.position).sqrMagnitude;
+
+            if (distanceSqr < minDistance)
+            {
+                minDistance = distanceSqr;
+                enemy = collider.gameObject;
+            }
+        }
+
+        return enemy;
     }
 }

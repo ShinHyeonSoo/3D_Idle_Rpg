@@ -11,7 +11,6 @@ public class PlayerStateMachine : StateMachine
     public float RotationDamping { get; private set; }
     public float MovementSpeedModifier { get; set; } = 1f;
 
-    public bool IsAttacking { get; set; }
     public bool IsDelaying { get; set; }
     public int ComboIndex { get; set; }
 
@@ -31,8 +30,6 @@ public class PlayerStateMachine : StateMachine
 
         MainCamTransform = Camera.main.transform;
 
-        // TODO : 추후 타겟을 자동으로 찾을 것임. 삭제할 코드
-        Target = GameObject.FindGameObjectWithTag("Enemy");
 
         IdleState = new PlayerIdleState(this);
         ChasingState = new PlayerChasingState(this);
