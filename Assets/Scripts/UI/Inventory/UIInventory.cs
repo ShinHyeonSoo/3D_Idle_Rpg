@@ -239,36 +239,36 @@ public class UIInventory : MonoBehaviour
         UpdateUI();
     }
 
-    //public void OnEquipButton()
-    //{
-    //    if (_curEquipsIdx[(int)_selectedItem._equipType] != -1
-    //        && _slots[_curEquipsIdx[(int)_selectedItem._equipType]]._equipped)
-    //    {
-    //        UnEquip(_curEquipsIdx[(int)_selectedItem._equipType]);
-    //    }
+    public void OnEquipButton()
+    {
+        if (_curEquipsIdx[(int)_selectedItem._equipType] != -1
+            && _slots[_curEquipsIdx[(int)_selectedItem._equipType]]._equipped)
+        {
+            UnEquip(_curEquipsIdx[(int)_selectedItem._equipType]);
+        }
 
-    //    _slots[_selectedItemIdx]._equipped = true;
-    //    _curEquipsIdx[(int)_selectedItem._equipType] = _selectedItemIdx;
-    //    CharacterManager.Instance.Player.Equipment.EquipNew(_selectedItem);
-    //    UpdateUI();
+        _slots[_selectedItemIdx]._equipped = true;
+        _curEquipsIdx[(int)_selectedItem._equipType] = _selectedItemIdx;
+        CharacterManager.Instance.Player.Equipment.EquipNew(_selectedItem);
+        UpdateUI();
 
-    //    SelectItem(_selectedItemIdx);
-    //}
+        SelectItem(_selectedItemIdx);
+    }
 
-    //public void UnEquipButton()
-    //{
-    //    UnEquip(_selectedItemIdx);
-    //}
+    public void UnEquipButton()
+    {
+        UnEquip(_selectedItemIdx);
+    }
 
-    //private void UnEquip(int index)
-    //{
-    //    _slots[index]._equipped = false;
-    //    CharacterManager.Instance.Player.Equipment.UnEquip(_slots[index]._item._equipType);
-    //    UpdateUI();
+    private void UnEquip(int index)
+    {
+        _slots[index]._equipped = false;
+        CharacterManager.Instance.Player.Equipment.UnEquip(_slots[index]._item._equipType);
+        UpdateUI();
 
-    //    if (_selectedItemIdx == index)
-    //    {
-    //        SelectItem(_selectedItemIdx);
-    //    }
-    //}
+        if (_selectedItemIdx == index)
+        {
+            SelectItem(_selectedItemIdx);
+        }
+    }
 }

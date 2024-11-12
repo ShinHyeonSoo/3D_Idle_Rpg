@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     public NavMeshAgent NavMeshAgent { get; private set; }
     public PlayerCondition Condition { get; private set; }
 
+    public Equipment Equipment { get; private set; }
+
     //public ForceReceiver ForceReceiver { get; private set; }
 
     // StateMachine
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour
         //ForceReceiver = GetComponent<ForceReceiver>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
         Condition = GetComponent<PlayerCondition>();
+        Equipment = GetComponent<Equipment>();
 
         _stateMachine = new PlayerStateMachine(this);
     }

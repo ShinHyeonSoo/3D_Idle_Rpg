@@ -80,12 +80,14 @@ public class PlayerComboAttackState : PlayerAttackState
             //    TryApplyForce();
             //}
 
+            int weaponStats = CharacterManager.Instance.Player.Equipment.EquipStats[(int)EquipType.Weapon];
+
             if (!_alreadyApliedDealing && normalizedTime >= _stateMachine.Player.Data.AttackData.
                 GetAttackInfoData(_stateMachine.ComboIndex).Dealing_Start_TransitionTime)
             {
                 _stateMachine.Player.Weapon.SetAttack(_stateMachine.Player.Data.AttackData.
-                    GetAttackInfoData(_stateMachine.ComboIndex).Damage, _stateMachine.Player.Data.AttackData.
-                    GetAttackInfoData(_stateMachine.ComboIndex).Force);
+                    GetAttackInfoData(_stateMachine.ComboIndex).Damage + weaponStats, 
+                    _stateMachine.Player.Data.AttackData.GetAttackInfoData(_stateMachine.ComboIndex).Force);
                 _stateMachine.Player.Weapon.gameObject.SetActive(true);
                 _alreadyApliedDealing = true;
             }

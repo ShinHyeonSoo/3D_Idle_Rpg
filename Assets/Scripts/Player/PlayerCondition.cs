@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Rendering.Universal;
 using UnityEngine;
 
 public interface IDamageable
@@ -95,6 +97,8 @@ public class PlayerCondition : MonoBehaviour, IDamageable
 
     public void TakePhysicalDamage(int damage)
     {
+        int armorStats = CharacterManager.Instance.Player.Equipment.EquipStats[(int)EquipType.Armor];
+        damage -= Convert.ToInt32(armorStats * 0.5f);
         HP.Subtract(damage);
     }
 

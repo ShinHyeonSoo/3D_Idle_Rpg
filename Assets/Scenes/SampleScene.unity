@@ -498,6 +498,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221127518265644365}
     m_Modifications:
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.33355212
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7354904848362656200, guid: 1890b894980b0324a956697802c2c416,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -766,6 +786,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221127518265644365}
     m_Modifications:
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.33355212
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7354904848362656200, guid: 1890b894980b0324a956697802c2c416,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1388,6 +1428,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221127518265644365}
     m_Modifications:
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.33355212
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7354904848362656200, guid: 1890b894980b0324a956697802c2c416,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2174,6 +2234,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221127518265644365}
     m_Modifications:
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.33355212
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7354904848362656200, guid: 1890b894980b0324a956697802c2c416,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2530,6 +2610,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221127518265644365}
     m_Modifications:
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.33355212
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7354904848362656200, guid: 1890b894980b0324a956697802c2c416,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -3818,6 +3918,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221127518265644365}
     m_Modifications:
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.33355212
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7354904848362656200, guid: 1890b894980b0324a956697802c2c416,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -4215,6 +4335,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221127518265644365}
     m_Modifications:
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.33355212
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7354904848362656200, guid: 1890b894980b0324a956697802c2c416,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -4432,6 +4572,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221127518265644365}
     m_Modifications:
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.33355212
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7354904848362656200, guid: 1890b894980b0324a956697802c2c416,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -4826,6 +4986,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221127518265644365}
     m_Modifications:
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.33355212
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7354904848362656200, guid: 1890b894980b0324a956697802c2c416,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5227,6 +5407,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221127518265644365}
     m_Modifications:
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.33355212
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7354904848362656200, guid: 1890b894980b0324a956697802c2c416,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5443,6 +5643,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221127518265644365}
     m_Modifications:
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.33355212
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7354904848362656200, guid: 1890b894980b0324a956697802c2c416,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5959,6 +6179,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221127518265644365}
     m_Modifications:
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.33355212
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7354904848362656200, guid: 1890b894980b0324a956697802c2c416,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -6335,6 +6575,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221127518265644365}
     m_Modifications:
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.33355212
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7354904848362656200, guid: 1890b894980b0324a956697802c2c416,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -6588,6 +6848,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221127518265644365}
     m_Modifications:
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.33355212
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17277982203761058, guid: 1890b894980b0324a956697802c2c416,
+        type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7354904848362656200, guid: 1890b894980b0324a956697802c2c416,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -8349,6 +8629,7 @@ GameObject:
   - component: {fileID: 1567936474}
   - component: {fileID: 1567936473}
   - component: {fileID: 1567936475}
+  - component: {fileID: 1567936476}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8457,6 +8738,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiCondition: {fileID: 1193270663}
+--- !u!114 &1567936476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567936470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d316e6bd90aa7a840b9f932466b57e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _curEquips: []
 --- !u!1 &1570953184
 GameObject:
   m_ObjectHideFlags: 0
@@ -12397,7 +12691,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 816802940}
         m_TargetAssemblyTypeName: UIInventory, Assembly-CSharp
         m_MethodName: UnEquipButton
         m_Mode: 1
@@ -13320,7 +13614,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 816802940}
         m_TargetAssemblyTypeName: UIInventory, Assembly-CSharp
         m_MethodName: OnEquipButton
         m_Mode: 1
