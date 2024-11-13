@@ -11,20 +11,10 @@ public class EnemyCondition : MonoBehaviour, IDamageable
     private event Action<int> ExpHandler;
     private event Action<int> GoldHandler;
 
-    BigInteger _bigHp;
-
     private void Awake()
     {
         _hp._startValue = GetComponent<Enemy>().Data.hp;
         _hp._maxValue = GetComponent<Enemy>().Data.hp;
-
-        _bigHp = new BigInteger(GetComponent<Enemy>().Data.bigHp);
-
-        string before = GetComponent<Enemy>().Data.bigHp;
-        string after = BigIntegerFormatter.FormatBigInteger(_bigHp);
-
-        Debug.Log(before);
-        Debug.Log(after);
     }
 
     private void Start()

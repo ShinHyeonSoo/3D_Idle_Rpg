@@ -7594,8 +7594,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: -250}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -50, y: -200}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1414157916
 MonoBehaviour:
@@ -7643,8 +7643,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 666308702}
         m_TargetAssemblyTypeName: Currency, Assembly-CSharp
-        m_MethodName: Add
-        m_Mode: 3
+        m_MethodName: OnClickGetCoinButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11709,7 +11709,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC2E4\uBC84\uCF54\uC778\n\uD68D\uB4DD"
+  m_text: "\uC2E4\uBC84\uCF54\uC778\n\uD68D\uB4DD\n(BigInteger)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a9639252d287fde468b7c2d2a7267c33, type: 2}
   m_sharedMaterial: {fileID: 7692690509805904559, guid: a9639252d287fde468b7c2d2a7267c33,
@@ -11737,8 +11737,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -20,7 +20,4 @@ public class EnemySO : ScriptableObject
     public int damage;
     public int exp;
     public int goldCoin;
-
-    public string bigHp;
-    public string bigDamage;
 }

@@ -5,7 +5,8 @@ using ScottGarland;
 
 public static class BigIntegerFormatter
 {
-    private static readonly string[] _units = { "", "a", "b", "c", "d", "e", "f", "g" };
+    private static readonly string[] _units = { "", "a", "b", "c", "d", "e", "f", "g", 
+        "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D" };
 
     public static string FormatBigInteger(BigInteger value)
     {
