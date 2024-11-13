@@ -6,6 +6,9 @@ using UnityEngine.UIElements;
 public class TerrainGenerator : MonoBehaviour
 {
     public Terrain _terrain;
+    public GameObject _terrainObj;
+    public GameObject _enemyPrefab;
+    public GameObject _obstaclePrefab;
 
     public int _terrainWidth = 100;
     public int _terrainHeight = 100;
@@ -16,19 +19,29 @@ public class TerrainGenerator : MonoBehaviour
     private float _offsetX;
     private float _offsetY;
 
-    public GameObject _terrainPrefab;
-
     public int _obstacleCount = 20;
-    public GameObject _obstaclePrefab;
+    public int _EnemyCount = 20;
 
-    void Start()
+    private List<Vector3> _placePos = new List<Vector3>();
+
+    private void Awake()
     {
-        _offsetX = Random.Range(0f, 1000f);
-        _offsetY = Random.Range(0f, 1000f);
+        Init();
 
         GenerateTerrain();
         PlaceObstacles();
-        //GenerateTerrain(_terrainPrefab);
+    }
+
+    private void Init()
+    {
+        var obj = Resources.Load<GameObject>("Prefabs/Terrain");
+        _terrainObj = Instantiate(obj);
+        _terrain = _terrainObj.GetComponent<Terrain>();
+        _enemyPrefab = Resources.Load<GameObject>("Prefabs/Enemy");
+        _obstaclePrefab = Resources.Load<GameObject>("Prefabs/Obstacle");
+
+        _offsetX = Random.Range(0f, 1000f);
+        _offsetY = Random.Range(0f, 1000f);
     }
 
     private void GenerateTerrain()
@@ -77,14 +90,58 @@ public class TerrainGenerator : MonoBehaviour
             float x = Random.Range(0, _terrainWidth);
             float z = Random.Range(0, _terrainHeight);
 
-            // 해당 위치의 높이 계산
-            float y = terrainData.GetHeight((int)x, (int)z);
+            // x, z 좌표를 Terrain heightmap 해상도에 맞게 변환
+            int xTerrain = (int)(x / terrainData.size.x * terrainData.heightmapResolution);
+            int zTerrain = (int)(z / terrainData.size.z * terrainData.heightmapResolution);
+
+            // 해당 위치의 높이 가져오기
+            float y = terrainData.GetHeight(xTerrain, zTerrain);
+
+            // 장애물 위치 설정
+            Vector3 position = new Vector3(x, y, z);
+            Instantiate(_obstaclePrefab, position, Quaternion.identity);
+
+            _placePos.Add(position);
+        }
+    }
+
+    public void PlaceEnemy()
+    {
+        TerrainData terrainData = _terrain.terrainData;
+
+        for (int i = 0; i < _obstacleCount; i++)
+        {
+            // 랜덤 x, z 좌표 생성
+            float x = Random.Range(0, _terrainWidth);
+            float z = Random.Range(0, _terrainHeight);
+
+            // x, z 좌표를 Terrain heightmap 해상도에 맞게 변환
+            int xTerrain = (int)(x / terrainData.size.x * terrainData.heightmapResolution);
+            int zTerrain = (int)(z / terrainData.size.z * terrainData.heightmapResolution);
+
+            // 해당 위치의 높이 가져오기
+            float y = terrainData.GetHeight(xTerrain, zTerrain);
 
             // 장애물 위치 설정
             Vector3 position = new Vector3(x, y, z);
 
-            // 장애물 생성
-            Instantiate(_obstaclePrefab, position, Quaternion.identity);
+            bool isEqual = false;
+            foreach (Vector3 pos in _placePos)
+            {
+                if (pos == position)
+                {
+                    isEqual = true;
+                    break;
+                }
+            }
+
+            if (isEqual)
+            {
+                ++_obstacleCount;
+                continue;
+            }
+
+            Instantiate(_enemyPrefab, position, Quaternion.identity);
         }
     }
 }
