@@ -90,12 +90,18 @@ public class PlayerComboAttackState : PlayerAttackState
                     _stateMachine.Player.Data.AttackData.GetAttackInfoData(_stateMachine.ComboIndex).Force);
                 _stateMachine.Player.Weapon.gameObject.SetActive(true);
                 _alreadyApliedDealing = true;
+
+                if (_stateMachine.ComboIndex == 2)
+                    CameraManager.Instance.CameraZoom.ZoomIn();
             }
 
             if (_alreadyApliedDealing && normalizedTime >= _stateMachine.Player.Data.AttackData.
                 GetAttackInfoData(_stateMachine.ComboIndex).Dealing_End_TransitionTime)
             {
                 _stateMachine.Player.Weapon.gameObject.SetActive(false);
+
+                if (_stateMachine.ComboIndex == 2)
+                    CameraManager.Instance.CameraZoom.ZoomOut();
             }
         }
         else

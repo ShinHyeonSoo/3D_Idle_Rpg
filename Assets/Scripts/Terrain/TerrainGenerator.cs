@@ -13,12 +13,22 @@ public class TerrainGenerator : MonoBehaviour
     public float _scale = 20f;
     public float _heightMultiplier = 10f;
 
+    private float _offsetX;
+    private float _offsetY;
+
     public GameObject _terrainPrefab;
+
+    public int _obstacleCount = 20;
+    public GameObject _obstaclePrefab;
 
     void Start()
     {
+        _offsetX = Random.Range(0f, 1000f);
+        _offsetY = Random.Range(0f, 1000f);
+
         GenerateTerrain();
-        GenerateTerrain(_terrainPrefab);
+        PlaceObstacles();
+        //GenerateTerrain(_terrainPrefab);
     }
 
     private void GenerateTerrain()
@@ -35,7 +45,7 @@ public class TerrainGenerator : MonoBehaviour
             {
                 float xCoord = (float)x / terrainData.heightmapResolution * _scale;
                 float yCoord = (float)y / terrainData.heightmapResolution * _scale;
-                heights[x, y] = Mathf.PerlinNoise(xCoord, yCoord);
+                heights[x, y] = Mathf.PerlinNoise(xCoord + _offsetX, yCoord + _offsetY);
             }
         }
 
@@ -54,6 +64,27 @@ public class TerrainGenerator : MonoBehaviour
                 Vector3 position = new Vector3(x, y, z);
                 Instantiate(obj, position, Quaternion.identity);
             }
+        }
+    }
+
+    private void PlaceObstacles()
+    {
+        TerrainData terrainData = _terrain.terrainData;
+
+        for (int i = 0; i < _obstacleCount; i++)
+        {
+            // 랜덤 x, z 좌표 생성
+            float x = Random.Range(0, _terrainWidth);
+            float z = Random.Range(0, _terrainHeight);
+
+            // 해당 위치의 높이 계산
+            float y = terrainData.GetHeight((int)x, (int)z);
+
+            // 장애물 위치 설정
+            Vector3 position = new Vector3(x, y, z);
+
+            // 장애물 생성
+            Instantiate(_obstaclePrefab, position, Quaternion.identity);
         }
     }
 }

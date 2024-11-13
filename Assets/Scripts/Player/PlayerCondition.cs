@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -100,6 +101,9 @@ public class PlayerCondition : MonoBehaviour, IDamageable
         int armorStats = CharacterManager.Instance.Player.Equipment.EquipStats[(int)EquipType.Armor];
         damage -= Convert.ToInt32(armorStats * 0.5f);
         HP.Subtract(damage);
+
+        CinemachineImpulseSource impulseSource = GetComponent<CinemachineImpulseSource>();
+        impulseSource.GenerateImpulse();
     }
 
     public bool UseStamina(float amount)
