@@ -45,6 +45,12 @@ public class PlayerChasingState : PlayerBaseState
             }
             else
             {
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(_stateMachine.Player.NavMeshAgent.transform.position, out hit, 1.0f, NavMesh.AllAreas))
+                {
+                    _stateMachine.Player.NavMeshAgent.Warp(hit.position);
+                }
+
                 _stateMachine.Player.NavMeshAgent.SetDestination(_stateMachine.Player.transform.position);
                 _stateMachine.ChangeState(_stateMachine.IdleState);
                 return;

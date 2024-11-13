@@ -20,19 +20,11 @@ public class TerrainGenerator : MonoBehaviour
     private float _offsetY;
 
     public int _obstacleCount = 20;
-    public int _EnemyCount = 20;
+    public int _enemyCount = 20;
 
     private List<Vector3> _placePos = new List<Vector3>();
 
-    private void Awake()
-    {
-        Init();
-
-        GenerateTerrain();
-        PlaceObstacles();
-    }
-
-    private void Init()
+    public void Init()
     {
         var obj = Resources.Load<GameObject>("Prefabs/Terrain");
         _terrainObj = Instantiate(obj);
@@ -42,6 +34,9 @@ public class TerrainGenerator : MonoBehaviour
 
         _offsetX = Random.Range(0f, 1000f);
         _offsetY = Random.Range(0f, 1000f);
+
+        GenerateTerrain();
+        PlaceObstacles();
     }
 
     private void GenerateTerrain()
@@ -99,7 +94,7 @@ public class TerrainGenerator : MonoBehaviour
 
             // 장애물 위치 설정
             Vector3 position = new Vector3(x, y, z);
-            Instantiate(_obstaclePrefab, position, Quaternion.identity);
+            Instantiate(_obstaclePrefab, position, Quaternion.identity, transform);
 
             _placePos.Add(position);
         }
@@ -109,7 +104,7 @@ public class TerrainGenerator : MonoBehaviour
     {
         TerrainData terrainData = _terrain.terrainData;
 
-        for (int i = 0; i < _obstacleCount; i++)
+        for (int i = 0; i < _enemyCount; i++)
         {
             // 랜덤 x, z 좌표 생성
             float x = Random.Range(0, _terrainWidth);
@@ -137,11 +132,11 @@ public class TerrainGenerator : MonoBehaviour
 
             if (isEqual)
             {
-                ++_obstacleCount;
+                ++_enemyCount;
                 continue;
             }
 
-            Instantiate(_enemyPrefab, position, Quaternion.identity);
+            Instantiate(_enemyPrefab, position, Quaternion.identity, transform);
         }
     }
 }
