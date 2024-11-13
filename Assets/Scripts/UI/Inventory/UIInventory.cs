@@ -45,6 +45,7 @@ public class UIInventory : MonoBehaviour
 
     private void Awake()
     {
+        InventoryManager.Instance.Inventory = this;
         _inventoryWindow = gameObject;
     }
 
@@ -139,7 +140,7 @@ public class UIInventory : MonoBehaviour
         CharacterManager.Instance.Player._itemData = null;
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
         for (int i = 0; i < _slots.Length; ++i)
         {

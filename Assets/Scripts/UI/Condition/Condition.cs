@@ -50,4 +50,10 @@ public class Condition : MonoBehaviour
         
         return false;
     }
+
+    public void OnClickUpgradeButton()
+    {
+        _maxValue += 50;
+        Debug.Log("최대 체력 증가");
+    }
 }

@@ -8,29 +8,40 @@ public class Currency : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _valueText;
     public int _curValue;
-    BigInteger _bigValue;
+    public BigInteger _bigValue;
 
-    private int _getCount;
-    BigInteger _coinValue;
+    public int _getCount;
+    public BigInteger _coinValue;
 
     private void Start()
     {
         _bigValue = new BigInteger(0);
         _coinValue = 500;
         _curValue = 0;
-        _valueText.text = _curValue.ToString();
+        UpdateText();
     }
 
     public void Add(int value)
     {
         _curValue += value;
-        _valueText.text = _curValue.ToString();
+        UpdateText();
     }
 
     public void Subtract(int value)
     {
         _curValue -= value;
+        UpdateText();
+    }
+
+    public void UpdateText()
+    {
         _valueText.text = _curValue.ToString();
+    }
+
+    public void UpdateBigText()
+    {
+        string result = BigIntegerFormatter.FormatBigInteger(_bigValue);
+        _valueText.text = result;
     }
 
     public void OnClickGetCoinButton()
@@ -45,8 +56,7 @@ public class Currency : MonoBehaviour
         }
 
         _bigValue = BigInteger.Add(_bigValue, _coinValue);
-        string result = BigIntegerFormatter.FormatBigInteger(_bigValue);
-        _valueText.text = result;
+        UpdateBigText();
         Debug.Log("Silver Coins : " + _bigValue.ToString());
     }
 }

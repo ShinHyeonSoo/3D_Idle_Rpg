@@ -27,6 +27,4 @@ MonoBehaviour:
   hp: 25
   damage: 10
   exp: 100
-  goldCoin: 150
-  bigHp: 1000000000
-  bigDamage: 10000
+  goldCoin: 1500

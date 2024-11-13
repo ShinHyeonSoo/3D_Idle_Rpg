@@ -23,7 +23,7 @@ public class PlayerCondition : MonoBehaviour, IDamageable
 
     private ConsumableType _consumableType;
 
-    private int _level = 1;
+    public int Level { get; set; } = 1;
 
     Condition HP { get { return _uiCondition._hp; } }
     Condition MP { get { return _uiCondition._mp; } }
@@ -58,7 +58,7 @@ public class PlayerCondition : MonoBehaviour, IDamageable
     {
         EXP.Add(amount);
         if (EXP.IncreaseMax())
-            ++_level;
+            ++Level;
     }
 
     public void UseScroll(float amount, float duration)
@@ -74,7 +74,7 @@ public class PlayerCondition : MonoBehaviour, IDamageable
 
     public void PrintLevelText()
     {
-        _uiCondition._levelText.text = $"Lv. {_level}";
+        _uiCondition._levelText.text = $"Lv. {Level}";
     }
 
     private void CheckEfficacy()

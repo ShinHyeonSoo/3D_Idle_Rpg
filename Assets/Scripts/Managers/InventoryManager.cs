@@ -5,6 +5,7 @@ using UnityEngine;
 public class InventoryManager : Singleton<InventoryManager>
 {
     public UICurrency Currency { get; set; }
+    public UIInventory Inventory { get; set; }
 
     protected override void Awake()
     {

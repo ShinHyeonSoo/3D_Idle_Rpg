@@ -13650,7 +13650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Stage Normal
+  m_text: Stage Random
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a9639252d287fde468b7c2d2a7267c33, type: 2}
   m_sharedMaterial: {fileID: 7692690509805904559, guid: a9639252d287fde468b7c2d2a7267c33,
