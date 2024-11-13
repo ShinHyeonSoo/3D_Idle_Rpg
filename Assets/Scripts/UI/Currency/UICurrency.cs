@@ -8,7 +8,7 @@ public class UICurrency : MonoBehaviour
     public Currency _goldCoin;
     public Currency _silverCoin;
 
-    void Start()
+    void Awake()
     {
         InventoryManager.Instance.Currency = this;
     }

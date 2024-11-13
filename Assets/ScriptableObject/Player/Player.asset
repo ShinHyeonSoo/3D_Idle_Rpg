@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <GroundData>k__BackingField:
     <BaseSpeed>k__BackingField: 5
-    <BaseRotationDamping>k__BackingField: 5
+    <BaseRotationDamping>k__BackingField: 1
     <ChasingSpeedModifier>k__BackingField: 1
-    <EnemyChasingRange>k__BackingField: 30
+    <EnemyChasingRange>k__BackingField: 500
     <AttackRange>k__BackingField: 1.5
   <AttackData>k__BackingField:
     <AttackInfoDatas>k__BackingField:

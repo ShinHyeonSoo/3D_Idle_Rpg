@@ -37,8 +37,13 @@ public class PlayerBaseState : IState
 
     public virtual void Update()
     {
-        if(_stateMachine.Target != null)
-            Rotate();
+        if (_stateMachine.Target != null)
+        {
+            if (_stateMachine.Player.NavMeshAgent.velocity.sqrMagnitude > 0.1f)
+                LookAtNavPath();
+            else
+                Rotate();
+        }
     }
 
     protected void StartAnimation(int animatorHash)
@@ -75,6 +80,13 @@ public class PlayerBaseState : IState
         }
     }
 
+    private void LookAtNavPath()
+    {
+        Transform playerTransform = _stateMachine.Player.transform;
+        Quaternion targetRotation = Quaternion.LookRotation(_stateMachine.Player.NavMeshAgent.velocity.normalized);
+        playerTransform.rotation = Quaternion.Slerp(playerTransform.rotation, targetRotation, _stateMachine.RotationDamping * Time.deltaTime);
+    }
+
     //protected void ForceMove()
     //{
     //    _stateMachine.Player.Controller.Move(_stateMachine.Player.ForceReceiver.Movement * Time.deltaTime);
@@ -105,7 +117,7 @@ public class PlayerBaseState : IState
     {
         //if (_stateMachine.Target._isDie) return false;
 
-        if(_stateMachine.Target == null)
+        if (_stateMachine.Target == null)
         {
             // 타겟이 null 일 때, 새 타겟을 찾는 로직
             _stateMachine.Target = NearEnemy();

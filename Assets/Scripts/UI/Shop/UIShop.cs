@@ -95,13 +95,13 @@ public class UIShop : MonoBehaviour
     {
         if (_selectIndex == -1) return;
         
-        if(_slots[_selectIndex]._item._itemPrice > InventoryManager.Instance.Currency._silverCoin._curValue)
+        if(_slots[_selectIndex]._item._itemPrice > InventoryManager.Instance.Currency._goldCoin._curValue)
         {
             return;
         }
         else
         {
-            InventoryManager.Instance.Currency._silverCoin.Subtract(_slots[_selectIndex]._item._itemPrice);
+            InventoryManager.Instance.Currency._goldCoin.Subtract(_slots[_selectIndex]._item._itemPrice);
         }
 
         CharacterManager.Instance.Player._itemData = _slots[_selectIndex]._item;
