@@ -14,6 +14,11 @@ public class MapManager : MonoBehaviour
     {
         _terrainGenerator = gameObject.GetComponent<TerrainGenerator>();
         _terrainGenerator.Init();
+        //Init();
+    }
+
+    private void Start()
+    {
         Init();
     }
 
