@@ -54,6 +54,14 @@ public class Condition : MonoBehaviour
     public void OnClickUpgradeButton()
     {
         _maxValue += 50;
+        SoundManager.Instance.Play("heal", Sound.Sfx);
+
+        Camera uiCam = CameraManager.Instance._ovetlayCameras[0];
+
+        Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(uiCam, EffectManager.Instance._effectUI.position);
+        Vector3 worldPosition = uiCam.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, 100f));
+
+        EffectManager.Instance.CreateFx(worldPosition);
         Debug.Log("최대 체력 증가");
     }
 }

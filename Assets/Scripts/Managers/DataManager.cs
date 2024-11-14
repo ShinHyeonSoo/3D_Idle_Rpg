@@ -102,12 +102,12 @@ public class DataManager : Singleton<DataManager>
     public void SaveData<T>(T data)
     {
         string json = JsonUtility.ToJson(data);
-        File.WriteAllText(_savePath + $"/{typeof(T).ToString()}.txt", json);
+        File.WriteAllText(_savePath + $"/{typeof(T).ToString()}.json", json);
     }
 
     public T LoadData<T>()
     {
-        string loadJson = File.ReadAllText(_savePath + $"/{typeof(T).ToString()}.txt");
+        string loadJson = File.ReadAllText(_savePath + $"/{typeof(T).ToString()}.json");
         return JsonUtility.FromJson<T>(loadJson);
     }
 }

@@ -51,5 +51,6 @@ public class ItemSlot : MonoBehaviour
     public void OnClickButton()
     {
         _inventory.SelectItem(_index);
+        SoundManager.Instance.Play("select", Sound.Sfx);
     }
 }

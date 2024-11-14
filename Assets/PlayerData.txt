@@ -1,0 +1,1 @@
+{"_level":2,"_exp":100.0,"_maxExp":120.00000762939453,"_hp":40.0,"_maxHp":100.0,"_mp":100.0,"_maxMp":100.0,"_goldCoin":2705,"_silverCoin":"1000500","_silverCoinValue":"500000","_silverCoinValueCount":1}

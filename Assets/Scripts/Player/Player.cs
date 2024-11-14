@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
     {
         CharacterManager.Instance.Player = this;
 
+        SoundManager.Instance.Play("bgm", Sound.Bgm);
+
         AnimationData.Initialize();
         Animator = GetComponentInChildren<Animator>();
         Controller = GetComponent<CharacterController>();

@@ -223,6 +223,8 @@ public class UIInventory : MonoBehaviour
             }
             RemoveSelectedItem();
         }
+
+        SoundManager.Instance.Play("click", Sound.Sfx);
     }
 
     private void RemoveSelectedItem()
@@ -254,6 +256,8 @@ public class UIInventory : MonoBehaviour
         UpdateUI();
 
         SelectItem(_selectedItemIdx);
+
+        SoundManager.Instance.Play("click", Sound.Sfx);
     }
 
     public void UnEquipButton()
@@ -271,5 +275,7 @@ public class UIInventory : MonoBehaviour
         {
             SelectItem(_selectedItemIdx);
         }
+
+        SoundManager.Instance.Play("click", Sound.Sfx);
     }
 }

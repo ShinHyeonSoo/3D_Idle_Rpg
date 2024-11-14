@@ -114,5 +114,7 @@ public class UIShop : MonoBehaviour
 
         ClearSelectedItemWindow();
         _selectIndex = -1;
+
+        SoundManager.Instance.Play("click", Sound.Sfx);
     }
 }

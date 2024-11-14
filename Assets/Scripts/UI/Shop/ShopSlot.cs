@@ -32,5 +32,6 @@ public class ShopSlot : MonoBehaviour
     public void OnClickButton()
     {
         Setting();
+        SoundManager.Instance.Play("select", Sound.Sfx);
     }
 }

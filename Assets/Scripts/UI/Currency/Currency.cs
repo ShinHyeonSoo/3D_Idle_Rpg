@@ -58,5 +58,7 @@ public class Currency : MonoBehaviour
         _bigValue = BigInteger.Add(_bigValue, _coinValue);
         UpdateBigText();
         Debug.Log("Silver Coins : " + _bigValue.ToString());
+
+        SoundManager.Instance.Play("coin", Sound.Sfx, 0.2f);
     }
 }
