@@ -21,7 +21,7 @@ public class EffectManager : Singleton<EffectManager>
         ParticleSystem.EmissionModule em = particleSystem.emission;
         em.SetBurst(0, new ParticleSystem.Burst(0, 10));
         ParticleSystem.MainModule mm = particleSystem.main;
-        mm.startSpeedMultiplier = 10f;
+        mm.startSpeedMultiplier = 50f;
         particleSystem.Play();
     }
 }
