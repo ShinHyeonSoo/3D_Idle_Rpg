@@ -31,7 +31,8 @@ public class EnemyBaseState : IState
 
     public virtual void Update()
     {
-        Rotate();
+        if(!_stateMachine.Enemy.Condition._isDie)
+            Rotate();
     }
 
     protected void StartAnimation(int animatorHash)

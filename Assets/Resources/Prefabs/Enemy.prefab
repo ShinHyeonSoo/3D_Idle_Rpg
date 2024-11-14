@@ -440,6 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: {fileID: 3779465600394021548}
+  _isDie: 0
 --- !u!1 &9174147878654990300
 GameObject:
   m_ObjectHideFlags: 0

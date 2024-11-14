@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,9 +15,13 @@ public class Enemy : MonoBehaviour
     public CharacterController Controller { get; private set; }
     //public ForceReceiver ForceReceiver { get; private set; }
 
+    public EnemyCondition Condition { get; private set; }
+
     public NavMeshAgent NavMeshAgent { get; private set; }
 
     private EnemyStateMachine _stateMachine;
+
+    public Action RemoveTarget;
 
     [field: SerializeField] public Weapon Weapon { get; private set; }
 
@@ -26,6 +31,7 @@ public class Enemy : MonoBehaviour
         Animator = GetComponentInChildren<Animator>();
         Controller = GetComponent<CharacterController>();
         //ForceReceiver = GetComponent<ForceReceiver>();
+        Condition = GetComponent<EnemyCondition>();
 
         NavMeshAgent = GetComponent<NavMeshAgent>();
 
@@ -35,6 +41,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         _stateMachine.ChangeState(_stateMachine.IdleState);
+        RemoveTarget += CharacterManager.Instance.Player.RemoveTarget;
     }
 
     private void Update()

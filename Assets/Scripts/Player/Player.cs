@@ -75,4 +75,9 @@ public class Player : MonoBehaviour
     //    Animator.SetTrigger("Die");
     //    enabled = false;
     //}
+
+    public void RemoveTarget()
+    {
+        _stateMachine.Target = null;
+    }
 }
